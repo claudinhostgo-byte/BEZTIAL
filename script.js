@@ -29,7 +29,7 @@
         title: 'Fuego, mar y tierra en su forma más honesta',
         body1: 'Beztial nace en la azotea de un nuevo proyecto en Colina: una parrilla contemporánea donde el producto manda y el fuego decide. Carnes maduradas en casa, pescados del día y vegetales al rescoldo, servidos sin artificios.',
         body2: 'Cocina de brasa hecha por manos que entienden el tiempo, la sal y la paciencia. Cada corte pasa por nuestra cámara de maduración antes de tocar la parrilla.',
-        s1: 'Días de maduración', s2: 'Piso de altura', s3: 'Vista cordillera',
+        s1: 'Días de maduración', s2: 'Terraza panorámica', s3: 'Vista panorámica',
         tag: 'Maduración en casa'
       },
       carta: {
@@ -41,15 +41,15 @@
       azotea: {
         label: 'La Experiencia',
         title: 'Una azotea sobre Colina',
-        body: 'En el piso 14, Beztial abre el cielo de Colina: atardeceres sobre los Andes, fuego al centro y una terraza pensada para quedarse. Un destino dentro del proyecto inmobiliario, reservado para quienes buscan algo más alto.',
-        l1: 'Dirección', l2: 'Horario', l3: 'Reservas',
-        addr: 'Camino El Cerro 4500, Piso 14 · Colina, Santiago',
+        body: 'En el rooftop de Workplace Guay Guay, en Colina, Beztial abre 150 m² de terraza panorámica al aire libre: cielo abierto, fuego al centro y un espacio pensado para quedarse. Un destino sobre el proyecto, para quienes buscan algo más alto.',
+        l1: 'Ubicación', l2: 'Horario', l3: 'Reservas',
+        addr: 'Rooftop Workplace Guay Guay · Colina, Región Metropolitana',
         hours: 'Martes a Domingo · 13:00 – 00:00 · Lunes cerrado',
         phone: '+56 9 8421 7730',
         cta: 'Reservar por WhatsApp'
       },
       band: { kicker: 'Brasa de espino', quote: '“El producto manda, el fuego decide.”' },
-      espacio: { kicker: 'El Espacio', line: 'Piso 14 · una terraza sobre Colina' },
+      espacio: { kicker: 'El Espacio', line: '150 m² de terraza panorámica · Colina' },
       footer: { tagline: 'Fuego · Mar · Tierra', rights: '© 2026 Beztial · Colina, Santiago · Todos los derechos reservados' }
     },
     en: {
@@ -65,7 +65,7 @@
         title: 'Fire, sea and earth at their most honest',
         body1: 'Beztial is born on the rooftop of a new development in Colina: a contemporary grill where the product leads and the fire decides. House-aged meats, day-boat fish and ember-roasted vegetables, served without artifice.',
         body2: 'Ember cooking by hands that understand time, salt and patience. Every cut passes through our aging chamber before it touches the grill.',
-        s1: 'Days of aging', s2: 'Floors up', s3: 'Andes view',
+        s1: 'Days of aging', s2: 'Panoramic terrace', s3: 'Panoramic view',
         tag: 'House dry-aging'
       },
       carta: {
@@ -77,15 +77,15 @@
       azotea: {
         label: 'The Experience',
         title: 'A rooftop above Colina',
-        body: 'On the 14th floor, Beztial opens up the Colina sky: sunsets over the Andes, fire at the center and a terrace made to linger. A destination within the development, reserved for those after something higher.',
-        l1: 'Address', l2: 'Hours', l3: 'Bookings',
-        addr: 'Camino El Cerro 4500, Floor 14 · Colina, Santiago',
+        body: 'On the rooftop of Workplace Guay Guay in Colina, Beztial opens 150 m² of open-air panoramic terrace: open sky, fire at the center and a space made to linger. A destination above the project, for those after something higher.',
+        l1: 'Location', l2: 'Hours', l3: 'Bookings',
+        addr: 'Workplace Guay Guay Rooftop · Colina, Región Metropolitana',
         hours: 'Tuesday to Sunday · 1:00 PM – 12:00 AM · Closed Mondays',
         phone: '+56 9 8421 7730',
         cta: 'Reserve via WhatsApp'
       },
       band: { kicker: 'Espino-wood embers', quote: '“The product leads, the fire decides.”' },
-      espacio: { kicker: 'The Space', line: 'Floor 14 · a terrace above Colina' },
+      espacio: { kicker: 'The Space', line: '150 m² panoramic terrace · Colina' },
       footer: { tagline: 'Fire · Sea · Earth', rights: '© 2026 Beztial · Colina, Santiago · All rights reserved' }
     }
   };
