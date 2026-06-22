@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beztial · Parrilla de altura — Colina, Santiago</title>
+  <meta name="description" content="Beztial — parrilla contemporánea en una azotea sobre Colina, Santiago. Cortes premium madurados sobre brasa viva, frente a la cordillera.">
+  <meta property="og:title" content="Beztial · Fuego · Mar · Tierra">
+  <meta property="og:description" content="Cortes premium madurados sobre brasa viva, frente a una vista que abraza la cordillera.">
+  <meta property="og:image" content="assets/hero-poster.png">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="assets/logo-nav.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="#top" class="nav-logo" aria-label="Beztial — inicio">
+      <img src="assets/logo-nav.png" alt="Beztial">
+    </a>
+    <div class="nav-links">
+      <a href="#concepto" class="nav-link" data-i18n="nav.concepto">Concepto</a>
+      <a href="#carta" class="nav-link" data-i18n="nav.carta">Carta</a>
+      <a href="#azotea" class="nav-link" data-i18n="nav.azotea">La Azotea</a>
+      <button type="button" class="nav-lang" data-lang-toggle>EN</button>
+      <a href="#" class="btn btn-light nav-reservar" data-wa target="_blank" rel="noopener" data-i18n="nav.reservar">Reservar</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="top" class="hero">
+    <video class="hero-video" data-video="a" muted playsinline poster="assets/hero-poster.png">
+      <source src="assets/hero.mp4" type="video/mp4">
+    </video>
+    <video class="hero-video" data-video="b" muted playsinline poster="assets/hero-poster.png">
+      <source src="assets/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-kicker" data-i18n="hero.kicker">Parrilla de altura · Colina, Santiago</p>
+      <img class="hero-wordmark" src="assets/logo-light.png" alt="Beztial — fuego · mar · tierra">
+      <h1 class="hero-title" data-i18n="hero.title">El fuego como ritual</h1>
+      <p class="hero-sub" data-i18n="hero.sub">Cortes premium madurados sobre brasa viva, frente a una vista que abraza la cordillera.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-light" data-wa target="_blank" rel="noopener" data-i18n="hero.cta">Reservar mesa</a>
+        <a href="#carta" class="btn btn-ghost" data-i18n="hero.cta2">Ver la carta</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span class="hero-scroll-label" data-i18n="hero.scroll">Desliza</span>
+      <span class="hero-scroll-arrow">↓</span>
+    </div>
+  </header>
+
+  <!-- CONCEPTO -->
+  <section id="concepto" class="concepto">
+    <div class="concepto-grid">
+      <div class="concepto-text">
+        <div class="eyebrow">
+          <span class="eyebrow-rule"></span>
+          <span class="eyebrow-label" data-i18n="concepto.label">El Concepto</span>
+        </div>
+        <h2 class="h-serif h-dark" data-i18n="concepto.title">Fuego, mar y tierra en su forma más honesta</h2>
+        <p class="lede" data-i18n="concepto.body1"></p>
+        <p class="lede" data-i18n="concepto.body2"></p>
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-num">45</div>
+            <div class="stat-label" data-i18n="concepto.s1">Días de maduración</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">14<span class="stat-deg">º</span></div>
+            <div class="stat-label" data-i18n="concepto.s2">Piso de altura</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">∞</div>
+            <div class="stat-label" data-i18n="concepto.s3">Vista cordillera</div>
+          </div>
+        </div>
+      </div>
+      <div class="concepto-figure">
+        <img src="assets/maduracion.png" alt="Corte premium madurado en casa">
+        <div class="figure-tag" data-i18n="concepto.tag">Maduración en casa</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND BAND -->
+  <section class="brand-band">
+    <img src="assets/fondo.png" alt="Beztial — fuego · mar · tierra">
+  </section>
+
+  <!-- CARTA -->
+  <section id="carta" class="carta">
+    <div class="carta-inner">
+      <div class="carta-head">
+        <div class="eyebrow eyebrow-center">
+          <span class="eyebrow-rule"></span>
+          <span class="eyebrow-label eyebrow-label-dark" data-i18n="carta.label">La Carta</span>
+          <span class="eyebrow-rule"></span>
+        </div>
+        <h2 class="h-serif h-ink" data-i18n="carta.title">Selección de la casa</h2>
+        <p class="carta-intro" data-i18n="carta.intro"></p>
+      </div>
+      <div class="menu-grid" data-menu></div>
+      <p class="carta-note" data-i18n="carta.note"></p>
+    </div>
+  </section>
+
+  <!-- BAND -->
+  <section class="band">
+    <div class="band-overlay"></div>
+    <div class="band-content">
+      <p class="band-kicker" data-i18n="band.kicker">Brasa de espino</p>
+      <p class="band-quote" data-i18n="band.quote"></p>
+    </div>
+  </section>
+
+  <!-- AZOTEA -->
+  <section id="azotea" class="azotea">
+    <div class="azotea-grid">
+      <div class="azotea-figure">
+        <div class="azotea-collage">
+          <img class="collage-main" src="assets/imagenapoyo2.jpeg" alt="La experiencia Beztial — corte a la parrilla">
+          <img class="collage-sub" src="assets/imagenapoyo3.jpeg" alt="Nuestra cocina">
+        </div>
+      </div>
+      <div class="azotea-text">
+        <div class="eyebrow">
+          <span class="eyebrow-rule"></span>
+          <span class="eyebrow-label" data-i18n="azotea.label">La Experiencia</span>
+        </div>
+        <h2 class="h-serif h-dark" data-i18n="azotea.title">Una azotea sobre Colina</h2>
+        <p class="lede" data-i18n="azotea.body"></p>
+        <div class="azotea-details">
+          <div class="detail-row">
+            <span class="detail-key" data-i18n="azotea.l1">Dirección</span>
+            <span class="detail-val" data-i18n="azotea.addr"></span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-key" data-i18n="azotea.l2">Horario</span>
+            <span class="detail-val" data-i18n="azotea.hours"></span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-key" data-i18n="azotea.l3">Reservas</span>
+            <span class="detail-val" data-i18n="azotea.phone"></span>
+          </div>
+        </div>
+        <a href="#" class="btn btn-light azotea-cta" data-wa target="_blank" rel="noopener" data-i18n="azotea.cta">Reservar por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AMBIENTE -->
+  <section class="ambiente-band">
+    <img src="assets/imagenapoyo4.jpeg" alt="El espacio Beztial en Colina">
+    <div class="ambiente-overlay"></div>
+    <div class="ambiente-caption">
+      <span class="ambiente-kicker" data-i18n="espacio.kicker">El Espacio</span>
+      <span class="ambiente-line" data-i18n="espacio.line">Piso 14 · una terraza sobre Colina</span>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <img class="footer-logo" src="assets/logo-light.png" alt="Beztial">
+      <p class="footer-tagline" data-i18n="footer.tagline">Fuego · Mar · Tierra</p>
+      <div class="footer-links">
+        <a href="https://instagram.com/beztial" target="_blank" rel="noopener" class="footer-link">Instagram</a>
+        <a href="#" data-wa target="_blank" rel="noopener" class="footer-link">WhatsApp</a>
+        <a href="#carta" class="footer-link" data-i18n="nav.carta">Carta</a>
+      </div>
+      <div class="footer-divider"></div>
+      <p class="footer-rights" data-i18n="footer.rights"></p>
+    </div>
+  </footer>
+
+  <canvas id="bz-smoke" aria-hidden="true"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>

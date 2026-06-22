@@ -1,0 +1,13 @@
+# Bundle de diseño original (referencia local; incluye un PDF de propuesta comercial)
+_handoff/
+
+# Configuración local de preview de Claude Code
+.claude/
+
+# Varios
+*.log
+.DS_Store
+Thumbs.db
+
+# Bundle original comprimido (contiene el PDF de propuesta comercial)
+*-handoff.zip
