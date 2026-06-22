@@ -11,3 +11,6 @@ Thumbs.db
 
 # Bundle original comprimido (contiene el PDF de propuesta comercial)
 *-handoff.zip
+
+# Documento interno del cliente (estrategia/carta) — no publicar
+assets/*.docx
