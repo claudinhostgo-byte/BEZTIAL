@@ -312,10 +312,13 @@ img { display: block; }
   border-radius: 2px; border: 1px solid rgba(244,240,232,.1); background: #B7AE9E;
   display: block;
 }
+/* El video conserva su proporción real (16:9): mismo ratio que el box, así
+   object-fit:cover lo llena sin recortar. */
+video.collage-main { aspect-ratio: 16 / 9; background: #100E0C; }
 /* Smaller framed image overlapping the bottom-right corner. */
 .collage-sub {
   position: absolute; right: 0; bottom: 0;
-  width: 46%; aspect-ratio: 3/4; object-fit: cover;
+  width: 38%; aspect-ratio: 3/4; object-fit: cover;
   border-radius: 2px; border: 5px solid var(--bg);
   box-shadow: 0 20px 48px rgba(0,0,0,.55);
   display: block;
