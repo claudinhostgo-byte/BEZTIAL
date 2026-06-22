@@ -10,7 +10,7 @@
   // ---- Config (the prototype's editable props) ----
   const DEFAULT_LANG = 'es';
   const VIDEO_BG = true;
-  const SHOW_PRICES = true;
+  const SHOW_PRICES = false;   // la carta del cliente no trae precios por plato
   const WA = '56984217730';
   const IG = 'https://instagram.com/beztial';
 
@@ -34,9 +34,9 @@
       },
       carta: {
         label: 'La Carta',
-        title: 'Selección de la casa',
-        intro: 'Una carta breve y precisa. Producto de temporada, brasa de espino y la mano justa.',
-        note: 'Precios en pesos chilenos (CLP). Carta sujeta a disponibilidad de temporada.'
+        title: 'Carta Beztial',
+        intro: 'Fuego, mar y tierra: cortes a la brasa, fusión costera de Baja California, frescura mediterránea y street premium.',
+        note: 'Carta sujeta a disponibilidad de temporada.'
       },
       azotea: {
         label: 'La Experiencia',
@@ -70,9 +70,9 @@
       },
       carta: {
         label: 'The Menu',
-        title: 'House selection',
-        intro: 'A short, precise menu. Seasonal product, espino-wood embers and a steady hand.',
-        note: 'Prices in Chilean pesos (CLP). Menu subject to seasonal availability.'
+        title: 'Beztial Menu',
+        intro: 'Fire, sea and earth: grilled cuts, Baja California coastal fusion, Mediterranean freshness and street premium.',
+        note: 'Menu subject to seasonal availability.'
       },
       azotea: {
         label: 'The Experience',
@@ -90,48 +90,122 @@
     }
   };
 
-  // img: thumbnail shown beside each dish (enlarges on hover). Mapped by type:
-  //   imagen1 = pescado · imagen2 = pulpo · imagen3 = wagyu · imagen4 = carne.
-  //   Tierra (verduras/frutas) has no photo yet — leave img unset.
+  // Carta real Beztial (documento del cliente). Sin precios por plato aún.
+  // img: miniatura junto al plato (se amplía al hover). Fotos disponibles:
+  //   imagen1=pescado · imagen2=pulpo · imagen3=corte laminado · imagen4=carne
+  //   maduracion=corte madurado · hero-poster=carne a la parrilla · grill-band=brasa.
+  // Reuso por afinidad: postres/bar/algunos usan imágenes de respaldo (brasa) hasta
+  // tener fotos propias. desc = frase inspiradora bajo cada producto.
+  const FISH='assets/imagen1.png', PULPO='assets/imagen2.png', CORTE='assets/imagen3.png',
+        CARNE='assets/imagen4.png', MADURADO='assets/maduracion.png',
+        PARRILLA='assets/hero-poster.png', BRASA='assets/grill-band.png';
   const MENU = {
     es: [
-      { name: 'Fuego · Carnes', items: [
-        { name: 'Ojo de Bife Madurado 45 Días', desc: 'Brasa de espino, sal de Maras y manteca de hierbas ahumadas.', price: '$34.000', img: 'assets/imagen4.png' },
-        { name: 'Wagyu A5 al Rescoldo', desc: 'Marmoleo sellado sobre brasa viva, jugo reducido al malbec y tuétano.', price: '$54.000', img: 'assets/imagen3.png' },
-        { name: 'Cordero Patagónico a las Brasas', desc: 'Ocho horas de cocción lenta, costra de romero y ajo negro.', price: '$31.000', img: 'assets/imagen4.png' },
-        { name: 'Mollejas Glaseadas al Fuego', desc: 'Crocantes por fuera, limón quemado y miel de ulmo.', price: '$19.000', img: 'assets/imagen4.png' }
+      { name: 'Cortes & Parrilla', items: [
+        { name: 'Lomo Vetado 400g', desc: 'El rey de la brasa.', img: CORTE },
+        { name: 'Entraña Premium', desc: 'Intensa, jugosa, inolvidable.', img: CARNE },
+        { name: 'Asado de Tira 12 hrs', desc: 'Doce horas de paciencia.', img: PARRILLA },
+        { name: 'Filete Mantequilla & Hierbas', desc: 'Suave como pocos.', img: CARNE },
+        { name: 'Ojo de Bife Madurado', desc: 'El tiempo lo hace noble.', img: MADURADO },
+        { name: 'Plateada Cocción Lenta', desc: 'Se deshace en la boca.', img: CORTE },
+        { name: 'Agregados', desc: 'Chimichurri Beztial, mantequilla ahumada, sal especiada.', img: BRASA }
       ]},
-      { name: 'Mar · Pescados y Mariscos', items: [
-        { name: 'Pulpo a la Brasa', desc: 'Tentáculo ahumado, puré de papa andina y aceite de pimentón.', price: '$26.000', img: 'assets/imagen2.png' },
-        { name: 'Corvina a la Parrilla', desc: 'Pesca del día, emulsión de erizo y algas crujientes.', price: '$30.000', img: 'assets/imagen1.png' },
-        { name: 'Ostiones Sellados al Fuego', desc: 'Sobre su concha, beurre blanc cítrico y caviar de limón.', price: '$28.000', img: 'assets/imagen1.png' },
-        { name: 'Camarones al Carbón', desc: 'Mantequilla de ajo asado, lima y un toque de merkén.', price: '$24.000', img: 'assets/imagen1.png' }
+      { name: 'Baja California · Fusión Costera', items: [
+        { name: 'Taco Baja Fish', desc: 'Crujiente brisa del Pacífico.', img: FISH },
+        { name: 'Taco Pulpo a la Parrilla', desc: 'El mar al fuego.', img: PULPO },
+        { name: 'Taco Rib Eye', desc: 'Fuego y queso, sin reglas.', img: CORTE },
+        { name: 'Taco Camarón al Ajillo', desc: 'Pequeño, ardiente, perfecto.', img: FISH },
+        { name: 'Tostadas de Atún Fresco', desc: 'Frescura que despierta.', img: FISH },
+        { name: 'Tiradito estilo Baja', desc: 'Delicado y atrevido.', img: FISH },
+        { name: 'Aguachile Beztial', desc: 'Picante con identidad.', img: PULPO }
       ]},
-      { name: 'Tierra · Verduras y Frutas', items: [
-        { name: 'Verduras de Estación al Rescoldo', desc: 'Raíces asadas en la ceniza, romesco de avellana tostada.', price: '$14.000' },
-        { name: 'Provoleta de Campo a la Brasa', desc: 'Provolone fundido, orégano fresco y tomate confitado.', price: '$13.000' },
-        { name: 'Zapallo Camote al Fuego', desc: 'Glaseado de miel y comino, yogurt de cabra y granada.', price: '$13.000' },
-        { name: 'Duraznos a la Parrilla', desc: 'Fruta caramelizada al fuego, helado de vainilla y almendra tostada.', price: '$11.000' }
+      { name: 'Mediterráneo', items: [
+        { name: 'Burrata', desc: 'Cremosa serenidad del sur.', img: FISH },
+        { name: 'Carpaccio de Res', desc: 'Finura en cada lámina.', img: CORTE },
+        { name: 'Pulpo Grillado', desc: 'El océano, sin prisa.', img: PULPO },
+        { name: 'Ensalada Griega Beztial', desc: 'Color, frescura, equilibrio.', img: FISH }
+      ]},
+      { name: 'Street Premium', items: [
+        { name: 'Hamburguesa Beztial', desc: 'Nuestro sello en cada bocado.', img: CARNE },
+        { name: 'BBQ Ribs Burger', desc: 'Ahumada, generosa, adictiva.', img: PARRILLA },
+        { name: 'Smash Burger Doble', desc: 'Doble fuego, doble placer.', img: CARNE },
+        { name: 'Sándwich de Entraña', desc: 'La calle se vuelve premium.', img: CORTE },
+        { name: 'Philly Steak Beztial', desc: 'Clásico con acento propio.', img: CARNE }
+      ]},
+      { name: 'Acompañamientos', items: [
+        { name: 'Papas Fritas Trufadas', desc: 'El lujo de lo simple.', img: PARRILLA },
+        { name: 'Papas Rústicas', desc: 'Doradas, honestas, perfectas.', img: PARRILLA },
+        { name: 'Vegetales Grillados', desc: 'La huerta tocada por el fuego.', img: PARRILLA },
+        { name: 'Puré Rústico', desc: 'Reconfortante como en casa.', img: PARRILLA },
+        { name: 'Arroz Mediterráneo', desc: 'Un viaje en cada grano.', img: PARRILLA }
+      ]},
+      { name: 'Postres', items: [
+        { name: 'Cheesecake de Frutos Rojos', desc: 'Dulce final, intenso recuerdo.', img: BRASA },
+        { name: 'Volcán de Chocolate', desc: 'Erupción de placer.', img: BRASA },
+        { name: 'Tarta Cítrica Mediterránea', desc: 'Luz del sur en un bocado.', img: BRASA },
+        { name: 'Helado Artesanal', desc: 'Frescura hecha a mano.', img: BRASA }
+      ]},
+      { name: 'Bar & Bebidas', items: [
+        { name: 'Margarita / Mezcalita Ahumada', desc: 'Humo que enamora.', img: BRASA },
+        { name: 'Negroni Beztial', desc: 'Amargo, elegante, eterno.', img: BRASA },
+        { name: 'Sour Clásico y de Maracuyá', desc: 'El equilibrio perfecto.', img: BRASA },
+        { name: 'Spritz Mediterráneo', desc: 'Burbujas con vista al mar.', img: BRASA },
+        { name: 'Carta de Vinos', desc: 'Chile en cada copa.', img: BRASA },
+        { name: 'Cervezas Seleccionadas', desc: 'Frías, justas, bien elegidas.', img: BRASA }
       ]}
     ],
     en: [
-      { name: 'Fire · Meats', items: [
-        { name: '45-Day Dry-Aged Ribeye', desc: 'Espino-wood embers, Maras salt and smoked herb butter.', price: '$34.000', img: 'assets/imagen4.png' },
-        { name: 'A5 Wagyu over Embers', desc: 'Marbling seared over live fire, malbec-reduced jus and marrow.', price: '$54.000', img: 'assets/imagen3.png' },
-        { name: 'Patagonian Lamb on the Grill', desc: 'Eight-hour slow cook, rosemary and black-garlic crust.', price: '$31.000', img: 'assets/imagen4.png' },
-        { name: 'Fire-Glazed Sweetbreads', desc: 'Crisp outside, burnt lemon and ulmo honey.', price: '$19.000', img: 'assets/imagen4.png' }
+      { name: 'Cuts & Grill', items: [
+        { name: 'Lomo Vetado (Ribeye Cap) 400g', desc: 'King of the embers.', img: CORTE },
+        { name: 'Premium Skirt Steak', desc: 'Bold, juicy, unforgettable.', img: CARNE },
+        { name: '12-Hour Short Rib', desc: 'Twelve hours of patience.', img: PARRILLA },
+        { name: 'Butter & Herb Filet', desc: 'Tender beyond compare.', img: CARNE },
+        { name: 'Dry-Aged Ribeye', desc: 'Aged to nobility.', img: MADURADO },
+        { name: 'Slow-Cooked Plateada', desc: 'Melts in your mouth.', img: CORTE },
+        { name: 'Add-ons', desc: 'Beztial chimichurri, smoked butter, spiced salt.', img: BRASA }
       ]},
-      { name: 'Sea · Fish & Seafood', items: [
-        { name: 'Grilled Octopus', desc: 'Smoked tentacle, Andean potato purée and paprika oil.', price: '$26.000', img: 'assets/imagen2.png' },
-        { name: 'Grilled Corvina', desc: "Day's catch, sea-urchin emulsion and crisp seaweed.", price: '$30.000', img: 'assets/imagen1.png' },
-        { name: 'Fire-Seared Scallops', desc: 'On the shell, citrus beurre blanc and finger-lime caviar.', price: '$28.000', img: 'assets/imagen1.png' },
-        { name: 'Charcoal Prawns', desc: 'Roasted garlic butter, lime and a touch of merkén.', price: '$24.000', img: 'assets/imagen1.png' }
+      { name: 'Baja California · Coastal Fusion', items: [
+        { name: 'Baja Fish Taco', desc: 'A crunch of Pacific breeze.', img: FISH },
+        { name: 'Grilled Octopus Taco', desc: 'The sea meets fire.', img: PULPO },
+        { name: 'Rib Eye Taco', desc: 'Fire and cheese, no rules.', img: CORTE },
+        { name: 'Garlic Shrimp Taco', desc: 'Small, fiery, perfect.', img: FISH },
+        { name: 'Fresh Tuna Tostadas', desc: 'Freshness that awakens.', img: FISH },
+        { name: 'Baja-Style Tiradito', desc: 'Delicate yet daring.', img: FISH },
+        { name: 'Beztial Aguachile', desc: 'Heat with identity.', img: PULPO }
       ]},
-      { name: 'Earth · Vegetables & Fruit', items: [
-        { name: 'Ember-Roasted Seasonal Vegetables', desc: 'Roots cooked in the ash, toasted-hazelnut romesco.', price: '$14.000' },
-        { name: 'Grilled Farm Provoleta', desc: 'Melted provolone, fresh oregano and confit tomato.', price: '$13.000' },
-        { name: 'Fire-Roasted Sweet Potato', desc: 'Honey-cumin glaze, goat yogurt and pomegranate.', price: '$13.000' },
-        { name: 'Grilled Peaches', desc: 'Fire-caramelized fruit, vanilla ice cream and toasted almond.', price: '$11.000' }
+      { name: 'Mediterranean', items: [
+        { name: 'Burrata', desc: 'Creamy southern calm.', img: FISH },
+        { name: 'Beef Carpaccio', desc: 'Finesse in every slice.', img: CORTE },
+        { name: 'Grilled Octopus', desc: 'The ocean, unhurried.', img: PULPO },
+        { name: 'Beztial Greek Salad', desc: 'Color, freshness, balance.', img: FISH }
+      ]},
+      { name: 'Street Premium', items: [
+        { name: 'Beztial Burger', desc: 'Our mark in every bite.', img: CARNE },
+        { name: 'BBQ Ribs Burger', desc: 'Smoky, generous, addictive.', img: PARRILLA },
+        { name: 'Double Smash Burger', desc: 'Double fire, double joy.', img: CARNE },
+        { name: 'Skirt Steak Sandwich', desc: 'The street goes premium.', img: CORTE },
+        { name: 'Beztial Philly Steak', desc: 'A classic, our way.', img: CARNE }
+      ]},
+      { name: 'Sides', items: [
+        { name: 'Truffled Fries', desc: 'The luxury of simple.', img: PARRILLA },
+        { name: 'Rustic Potatoes', desc: 'Golden, honest, perfect.', img: PARRILLA },
+        { name: 'Grilled Vegetables', desc: 'The garden kissed by fire.', img: PARRILLA },
+        { name: 'Rustic Mash', desc: 'Comforting as home.', img: PARRILLA },
+        { name: 'Mediterranean Rice', desc: 'A journey in every grain.', img: PARRILLA }
+      ]},
+      { name: 'Desserts', items: [
+        { name: 'Red-Berry Cheesecake', desc: 'A sweet, lasting memory.', img: BRASA },
+        { name: 'Chocolate Lava Cake', desc: 'An eruption of pleasure.', img: BRASA },
+        { name: 'Mediterranean Citrus Tart', desc: 'Southern light in a bite.', img: BRASA },
+        { name: 'Artisan Ice Cream', desc: 'Freshness, handcrafted.', img: BRASA }
+      ]},
+      { name: 'Bar & Drinks', items: [
+        { name: 'Margarita / Smoked Mezcalita', desc: 'Smoke that seduces.', img: BRASA },
+        { name: 'Beztial Negroni', desc: 'Bitter, elegant, eternal.', img: BRASA },
+        { name: 'Classic & Passion-Fruit Sour', desc: 'Perfect balance.', img: BRASA },
+        { name: 'Mediterranean Spritz', desc: 'Bubbles with a sea view.', img: BRASA },
+        { name: 'Wine List', desc: 'Chile in every glass.', img: BRASA },
+        { name: 'Selected Beers', desc: 'Cold, crisp, well chosen.', img: BRASA }
       ]}
     ]
   };
@@ -219,10 +293,12 @@
         }
         body.appendChild(head);
 
-        const desc = document.createElement('p');
-        desc.className = 'menu-item-desc';
-        desc.textContent = d.desc;
-        body.appendChild(desc);
+        if (d.desc) {
+          const desc = document.createElement('p');
+          desc.className = 'menu-item-desc';
+          desc.textContent = d.desc;
+          body.appendChild(desc);
+        }
 
         item.appendChild(body);
         col.appendChild(item);
