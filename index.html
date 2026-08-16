@@ -57,7 +57,14 @@ body{margin:0;overflow:hidden}
 .teaser-audio-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-2);font-weight:500;line-height:1.5;white-space:nowrap;transition:color .3s ease}
 .teaser-audio:hover .teaser-audio-label,.teaser-audio.playing .teaser-audio-label{color:var(--cream)}
 /* En pantallas angostas el mensaje envuelve para no chocar con ES/EN. */
-@media (max-width:620px){.teaser-audio{gap:9px;padding:8px 13px 8px 11px;max-width:calc(100vw - 130px)}.teaser-audio-label{white-space:normal;letter-spacing:.14em;font-size:9px}}
+@media (max-width:620px){
+  /* Reserva la franja superior para que el contenido no suba bajo el widget. */
+  .teaser{padding-top:clamp(88px,13.5vh,118px)}
+  .teaser-audio{top:16px;left:16px;gap:9px;padding:7px 13px 7px 10px;max-width:min(258px,calc(100vw - 116px))}
+  .teaser-audio-label{white-space:normal;letter-spacing:.12em;font-size:9px;line-height:1.45}
+  .teaser-audio-bars{height:13px;width:17px}
+  .hero-wordmark{width:min(76vw,460px);max-height:26vh;margin-bottom:clamp(18px,3vh,34px)}
+}
 @media (prefers-reduced-motion:reduce){.fade{animation-duration:.01s;animation-delay:0s}.teaser-media .layer{animation:none;transform:scale(1.03)}.teaser-audio.playing .teaser-audio-bars i{animation:none;height:15px}}
 a{color:var(--muted-2)}a:hover{color:var(--cream)}
 </style>
