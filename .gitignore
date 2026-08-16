@@ -14,3 +14,6 @@ Thumbs.db
 
 # Documento interno del cliente (estrategia/carta) — no publicar
 assets/*.docx
+
+# Originales pesados de imagenes (respaldo local, no versionar)
+_originals/

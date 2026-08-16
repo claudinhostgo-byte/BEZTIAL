@@ -1,189 +1,150 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Beztial · Parrilla de altura — Colina, Santiago</title>
-  <meta name="description" content="Beztial — parrilla contemporánea en una azotea sobre Colina, Santiago. Cortes premium madurados sobre brasa viva, frente a la cordillera.">
-  <meta property="og:title" content="Beztial · Fuego · Mar · Tierra">
-  <meta property="og:description" content="Cortes premium madurados sobre brasa viva, frente a una vista que abraza la cordillera.">
-  <meta property="og:image" content="assets/hero-poster.png">
-  <meta property="og:type" content="website">
-  <link rel="icon" type="image/png" href="assets/logo-nav.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Beztial · Próximamente en Chicureo</title>
+<meta name="description" content="Tierra, mar y fuego. Próximamente en Chicureo.">
+<link rel="stylesheet" href="styles.css">
+<style>
+html,body{height:100%}
+body{margin:0;overflow:hidden}
+.teaser{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:clamp(20px,3vh,48px) 16px clamp(22px,3vh,44px)}
+.teaser-media{position:absolute;inset:0;z-index:0;background-color:#100E0C;animation:tzIn 2.4s cubic-bezier(.22,.61,.36,1) both}
+.teaser-media .layer{position:absolute;inset:0;background:center 62%/cover no-repeat;opacity:0;transition:opacity 2.6s ease-in-out;animation:kb 40s ease-in-out infinite alternate}
+.teaser-media .layer.on{opacity:1}
+@keyframes kb{from{transform:scale(1.03)}to{transform:scale(1.1)}}
+.teaser-media .layer.on{opacity:1}
+.teaser-scrim{position:absolute;inset:0;z-index:1;background:radial-gradient(120% 85% at 50% 34%,rgba(16,14,12,.24) 0%,rgba(16,14,12,.56) 58%,rgba(16,14,12,.86) 100%),linear-gradient(to bottom,rgba(16,14,12,.5),rgba(16,14,12,.06) 42%,rgba(16,14,12,.74))}
+@keyframes tzIn{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:none}}
+.teaser-lang{position:absolute;top:clamp(20px,4vh,34px);right:clamp(20px,5vw,48px);z-index:3;display:flex;align-items:center;gap:10px}
+.teaser-lang .nav-lang{background:none;border:none;padding:0;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);cursor:pointer;font-family:var(--sans);font-weight:500;transition:color .25s ease}
+.teaser-lang .nav-lang[aria-pressed="true"]{color:var(--cream)}
+.teaser-lang .sep{width:1px;height:11px;background:rgba(244,240,232,.18)}
+.hero-content{width:100%}
+#heroTitle{min-height:2.1em;display:flex;align-items:center;justify-content:center;max-width:26ch;margin:0 auto;font-size:clamp(28px,4.4vh,56px);line-height:1.15}
+.hero-sub{margin:clamp(10px,1.8vh,22px) auto 0;max-width:58ch;font-size:clamp(15px,2.1vh,20px)}
+.hero-wordmark{display:block;margin:0 auto clamp(32px,5.5vh,66px);width:min(56vw,720px);max-height:30vh;height:auto;object-fit:contain}
+.teaser-rule{display:none}
+.teaser-soon{position:static;z-index:3;width:100%;display:flex;flex-direction:column;align-items:center;gap:clamp(10px,1.6vh,16px);margin-top:clamp(16px,2.6vh,36px);padding:0 20px;text-align:center}
+.teaser-soon-line{font-size:clamp(11px,1.4vw,13px);letter-spacing:.34em;text-transform:uppercase;color:var(--muted-2);font-weight:400}
+.teaser-count{display:flex;align-items:baseline;justify-content:center;gap:12px;margin:0;font-family:var(--serif);font-weight:300;color:var(--cream)}
+.teaser-count #countN{font-size:clamp(34px,6vh,64px);line-height:1;font-variant-numeric:tabular-nums}
+.teaser-count-unit{font-family:var(--sans);font-size:clamp(10px,1.3vw,12px);letter-spacing:.3em;text-transform:uppercase;color:var(--muted-2)}
+.teaser-when{margin:-4px 0 0;font-family:var(--sans);font-size:clamp(10px,1.2vw,12px);letter-spacing:.34em;text-transform:uppercase;color:var(--muted-2)}
+.teaser-invite{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(16px,2.4vh,23px);line-height:1.35;color:var(--cream);max-width:52ch;margin:0;text-wrap:pretty}
+.teaser-cta{display:inline-flex;white-space:nowrap;align-self:center;align-items:center;gap:10px;padding:13px 26px;min-height:46px;border:1px solid rgba(244,240,232,.55);border-radius:999px;font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--cream);text-decoration:none;background:rgba(16,14,12,.35);transition:background .3s ease,border-color .3s ease,color .3s ease}
+.teaser-cta:hover{background:var(--red);border-color:var(--red);color:#fff}
+.teaser-cta svg{width:17px;height:17px;flex:none}
+.teaser-soon .footer-link{display:inline-flex;align-items:center;gap:8px}
+.teaser-soon .footer-link svg{width:14px;height:14px;flex:none}
+.fade{opacity:0;transform:translateY(10px);animation:tzFade 1.9s cubic-bezier(.22,.61,.36,1) forwards}
+.d1{animation-delay:.35s}.d2{animation-delay:.95s}.d3{animation-delay:1.55s}.d4{animation-delay:2.15s}.d5{animation-delay:2.75s}
+@keyframes tzFade{to{opacity:1;transform:none}}
+@media (max-height:680px){.teaser{padding-top:14px;padding-bottom:14px}.hero-wordmark{width:min(46vw,420px);max-height:24vh;margin-bottom:26px}.teaser-soon{margin-top:12px;gap:8px}.teaser-count #countN{font-size:clamp(28px,5vh,40px)}.teaser-cta{padding:11px 22px;min-height:42px}}
+/* Widget de audio, arriba a la izquierda. Es el control de play/pausa:
+   ningún navegador permite autoplay con sonido sin gesto del usuario. */
+.teaser-audio{position:absolute;top:clamp(20px,4vh,34px);left:clamp(20px,5vw,48px);z-index:3;display:inline-flex;align-items:center;gap:11px;padding:9px 16px 9px 13px;background:rgba(16,14,12,.42);border:1px solid rgba(244,240,232,.16);border-radius:999px;cursor:pointer;font-family:var(--sans);text-align:left;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:background .3s ease,border-color .3s ease}
+.teaser-audio:hover{background:rgba(16,14,12,.62);border-color:rgba(244,240,232,.42)}
+.teaser-audio:focus-visible{outline:2px solid var(--red-soft);outline-offset:3px}
+.teaser-audio[hidden]{display:none}
+.teaser-audio-bars{display:flex;align-items:flex-end;gap:2.5px;height:15px;width:20px;flex:none}
+.teaser-audio-bars i{display:block;width:2.5px;height:3px;border-radius:1px;background:var(--muted);transition:height .3s ease,background .3s ease}
+.teaser-audio.playing .teaser-audio-bars i{background:var(--red-soft);animation:bzEq .85s ease-in-out infinite alternate}
+.teaser-audio.playing .teaser-audio-bars i:nth-child(1){animation-duration:.72s;animation-delay:-.15s}
+.teaser-audio.playing .teaser-audio-bars i:nth-child(2){animation-duration:1.05s;animation-delay:-.5s}
+.teaser-audio.playing .teaser-audio-bars i:nth-child(3){animation-duration:.62s}
+.teaser-audio.playing .teaser-audio-bars i:nth-child(4){animation-duration:.95s;animation-delay:-.3s}
+.teaser-audio.playing .teaser-audio-bars i:nth-child(5){animation-duration:.8s;animation-delay:-.65s}
+@keyframes bzEq{from{height:3px}to{height:15px}}
+.teaser-audio-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-2);font-weight:500;line-height:1.5;white-space:nowrap;transition:color .3s ease}
+.teaser-audio:hover .teaser-audio-label,.teaser-audio.playing .teaser-audio-label{color:var(--cream)}
+/* En pantallas angostas el mensaje envuelve para no chocar con ES/EN. */
+@media (max-width:620px){.teaser-audio{gap:9px;padding:8px 13px 8px 11px;max-width:calc(100vw - 130px)}.teaser-audio-label{white-space:normal;letter-spacing:.14em;font-size:9px}}
+@media (prefers-reduced-motion:reduce){.fade{animation-duration:.01s;animation-delay:0s}.teaser-media .layer{animation:none;transform:scale(1.03)}.teaser-audio.playing .teaser-audio-bars i{animation:none;height:15px}}
+a{color:var(--muted-2)}a:hover{color:var(--cream)}
+</style>
 </head>
 <body>
+<main class="hero teaser">
+  <div class="teaser-media" id="media">
+    <div class="layer" data-bg="assets/teaser-bg.webp"></div>
+    <div class="layer" data-bg="assets/teaser-bg-2.webp"></div>
+    <div class="layer" data-bg="assets/teaser-bg-3.webp"></div>
+    <!-- Reemplazar por el video del hero: descomentar y dejar el mp4 en assets/hero.mp4
+    <video class="hero-video" autoplay muted loop playsinline poster="assets/teaser-bg.webp">
+      <source src="assets/hero.mp4" type="video/mp4">
+    </video> -->
+  </div>
+  <div class="teaser-scrim"></div>
 
-  <!-- NAV -->
-  <nav class="nav">
-    <a href="#top" class="nav-logo" aria-label="Beztial — inicio">
-      <img src="assets/logo-nav.png" alt="Beztial">
-    </a>
-    <div class="nav-links">
-      <a href="#concepto" class="nav-link" data-i18n="nav.concepto">Concepto</a>
-      <a href="#carta" class="nav-link" data-i18n="nav.carta">Carta</a>
-      <a href="#azotea" class="nav-link" data-i18n="nav.azotea">La Azotea</a>
-      <button type="button" class="nav-lang" data-lang-toggle>EN</button>
-      <a href="#" class="btn btn-light nav-reservar" data-wa target="_blank" rel="noopener" data-i18n="nav.reservar">Reservar</a>
-    </div>
+  <nav class="teaser-lang">
+    <button type="button" class="nav-lang" data-lang="es" aria-pressed="true">ES</button>
+    <span class="sep"></span>
+    <button type="button" class="nav-lang" data-lang="en" aria-pressed="false">EN</button>
   </nav>
 
-  <!-- HERO -->
-  <header id="top" class="hero">
-    <video class="hero-video" data-video="a" muted playsinline poster="assets/hero-poster.png">
-      <source src="assets/hero.mp4" type="video/mp4">
-    </video>
-    <video class="hero-video" data-video="b" muted playsinline poster="assets/hero-poster.png">
-      <source src="assets/hero.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <p class="hero-kicker" data-i18n="hero.kicker">Parrilla de altura · Colina, Santiago</p>
-      <img class="hero-wordmark" src="assets/logo-light.png" alt="Beztial — fuego · mar · tierra">
-      <h1 class="hero-title" data-i18n="hero.title">El fuego como ritual</h1>
-      <p class="hero-sub" data-i18n="hero.sub">Cortes premium madurados sobre brasa viva, frente a una vista que abraza la cordillera.</p>
-      <div class="hero-actions">
-        <a href="#" class="btn btn-light" data-wa target="_blank" rel="noopener" data-i18n="hero.cta">Reservar mesa</a>
-        <a href="#carta" class="btn btn-ghost" data-i18n="hero.cta2">Ver la carta</a>
-      </div>
-    </div>
-    <div class="hero-scroll">
-      <span class="hero-scroll-label" data-i18n="hero.scroll">Desliza</span>
-      <span class="hero-scroll-arrow">↓</span>
-    </div>
-  </header>
+  <!-- Dejar el archivo con licencia en assets/material-love.mp3 -->
+  <audio id="bzAudio" src="assets/material-love.mp3" loop preload="none"></audio>
+  <button type="button" class="teaser-audio fade d2" id="bzAudioBtn" aria-pressed="false">
+    <span class="teaser-audio-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+    <span class="teaser-audio-label" data-i18n="audio">Así se escucha una experiencia Beztial</span>
+  </button>
 
-  <!-- CONCEPTO -->
-  <section id="concepto" class="concepto">
-    <div class="concepto-grid">
-      <div class="concepto-text">
-        <div class="eyebrow">
-          <span class="eyebrow-rule"></span>
-          <span class="eyebrow-label" data-i18n="concepto.label">El Concepto</span>
-        </div>
-        <h2 class="h-serif h-dark" data-i18n="concepto.title">Fuego, mar y tierra en su forma más honesta</h2>
-        <p class="lede" data-i18n="concepto.body1"></p>
-        <p class="lede" data-i18n="concepto.body2"></p>
-        <div class="stats">
-          <div class="stat">
-            <div class="stat-num">45</div>
-            <div class="stat-label" data-i18n="concepto.s1">Días de maduración</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">150<span class="stat-deg">m²</span></div>
-            <div class="stat-label" data-i18n="concepto.s2">Terraza panorámica</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">360<span class="stat-deg">°</span></div>
-            <div class="stat-label" data-i18n="concepto.s3">Vista panorámica</div>
-          </div>
-        </div>
-      </div>
-      <div class="concepto-figure">
-        <img src="assets/maduracion.png" alt="Corte premium madurado en casa">
-        <div class="figure-tag" data-i18n="concepto.tag">Maduración en casa</div>
-      </div>
-    </div>
-  </section>
+  <div class="hero-content">
+    <img class="hero-wordmark fade d1" src="assets/logofondooscurov2.png" width="1000" height="500" alt="Beztial · fuego, mar y tierra">
+    <h1 class="hero-title fade d3" id="heroTitle">Algo se enciende en Chicureo</h1>
+    <p class="hero-sub fade d4" data-i18n="sub">En un rooftop de Guay Guay ya huele a espino. Cortes madurados en casa, fuego a la vista y una terraza que se prepara para recibirte.</p>
+    <div class="teaser-rule fade d5"></div>
+  </div>
 
-  <!-- BRAND BAND -->
-  <section class="brand-band">
-    <img src="assets/fondo.png" alt="Beztial — fuego · mar · tierra">
-  </section>
 
-  <!-- CARTA -->
-  <section id="carta" class="carta">
-    <div class="carta-inner">
-      <div class="carta-head">
-        <div class="eyebrow eyebrow-center">
-          <span class="eyebrow-rule"></span>
-          <span class="eyebrow-label eyebrow-label-dark" data-i18n="carta.label">La Carta</span>
-          <span class="eyebrow-rule"></span>
-        </div>
-        <h2 class="h-serif h-ink" data-i18n="carta.title">Selección de la casa</h2>
-        <p class="carta-intro" data-i18n="carta.intro"></p>
-      </div>
-      <div class="menu-grid" data-menu></div>
-      <p class="carta-note" data-i18n="carta.note"></p>
-    </div>
-  </section>
-
-  <!-- BAND -->
-  <section class="band">
-    <div class="band-overlay"></div>
-    <div class="band-content">
-      <p class="band-kicker" data-i18n="band.kicker">Brasa de espino</p>
-      <p class="band-quote" data-i18n="band.quote"></p>
-    </div>
-  </section>
-
-  <!-- AZOTEA -->
-  <section id="azotea" class="azotea">
-    <div class="azotea-grid">
-      <div class="azotea-figure">
-        <div class="azotea-collage">
-          <video class="collage-main" autoplay muted loop playsinline preload="metadata" poster="assets/imagenapoyo2.jpeg">
-            <source src="assets/video1.mp4" type="video/mp4">
-          </video>
-          <img class="collage-sub" src="assets/imagenapoyo3.jpeg" alt="Nuestra cocina">
-        </div>
-      </div>
-      <div class="azotea-text">
-        <div class="eyebrow">
-          <span class="eyebrow-rule"></span>
-          <span class="eyebrow-label" data-i18n="azotea.label">La Experiencia</span>
-        </div>
-        <h2 class="h-serif h-dark" data-i18n="azotea.title">Una azotea sobre Colina</h2>
-        <p class="lede" data-i18n="azotea.body"></p>
-        <div class="azotea-details">
-          <div class="detail-row">
-            <span class="detail-key" data-i18n="azotea.l1">Dirección</span>
-            <span class="detail-val" data-i18n="azotea.addr"></span>
-          </div>
-          <div class="detail-row">
-            <span class="detail-key" data-i18n="azotea.l2">Horario</span>
-            <span class="detail-val" data-i18n="azotea.hours"></span>
-          </div>
-          <div class="detail-row">
-            <span class="detail-key" data-i18n="azotea.l3">Reservas</span>
-            <span class="detail-val" data-i18n="azotea.phone"></span>
-          </div>
-        </div>
-        <a href="#" class="btn btn-light azotea-cta" data-wa target="_blank" rel="noopener" data-i18n="azotea.cta">Reservar por WhatsApp</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- AMBIENTE -->
-  <section class="ambiente-band">
-    <img src="assets/imagenapoyo4.jpeg" alt="El espacio Beztial en Colina">
-    <div class="ambiente-overlay"></div>
-    <div class="ambiente-caption">
-      <span class="ambiente-kicker" data-i18n="espacio.kicker">El Espacio</span>
-      <span class="ambiente-line" data-i18n="espacio.line">Piso 14 · una terraza sobre Colina</span>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <img class="footer-logo" src="assets/logo-light.png" alt="Beztial">
-      <p class="footer-tagline" data-i18n="footer.tagline">Fuego · Mar · Tierra</p>
-      <div class="footer-links">
-        <a href="https://instagram.com/beztial" target="_blank" rel="noopener" class="footer-link">Instagram</a>
-        <a href="#" data-wa target="_blank" rel="noopener" class="footer-link">WhatsApp</a>
-        <a href="#carta" class="footer-link" data-i18n="nav.carta">Carta</a>
-      </div>
-      <div class="footer-divider"></div>
-      <p class="footer-rights" data-i18n="footer.rights"></p>
-    </div>
-  </footer>
-
-  <canvas id="bz-smoke" aria-hidden="true"></canvas>
-
-  <script src="script.js"></script>
-</body>
-</html>
+  <div class="teaser-soon fade d5">
+    <p class="teaser-soon-line" data-i18n="soon">Próximamente en Chicureo</p>
+    <p class="teaser-count"><span id="countN">—</span><span class="teaser-count-unit" data-i18n="days">días para que arda la primera brasa</span></p>
+    <p class="teaser-when" data-i18n="when">Abril 2027</p>
+    <p class="teaser-invite" data-i18n="invite">Síguenos hoy y el aperitivo de tu primera noche va por la casa.</p>
+    <a class="teaser-cta" href="https://www.instagram.com/beztial.cl/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"></circle></svg><span data-i18n="cta">Síguenos en @beztial.cl</span></a>
+  </div>
+</main>
+<script>
+const copy={es:{sub:"En un rooftop de Guay Guay ya huele a espino. Cortes madurados en casa, fuego a la vista y una terraza que se prepara para recibirte.",soon:"Próximamente en Chicureo",invite:"Síguenos hoy y el aperitivo de tu primera noche va por la casa.",days:"días para que arda la primera brasa",when:"Abril 2027",cta:"Síguenos en @beztial.cl",audio:"Así se escucha una experiencia Beztial"},
+en:{sub:"On a Guay Guay rooftop it already smells of espino. House-aged cuts, fire in plain sight and a terrace getting ready for you.",soon:"Coming soon to Chicureo",invite:"Follow us today and your first-night aperitif is on the house.",days:"days until the first ember burns",when:"April 2027",cta:"Follow @beztial.cl",audio:"This is what a Beztial experience sounds like"}};
+const titles={es:["Algo se enciende en Chicureo","Cortes que esperaron 45 días para esta noche.","El mar y la brasa, en la misma mesa.","Una cocina que se mide en fuego, no en minutos."],
+en:["Something is catching fire in Chicureo","Cuts that waited 45 days for this night.","The sea and the embers, at the same table.","A kitchen measured in fire, not in minutes."]};
+const btns=document.querySelectorAll('.nav-lang');
+const title=document.getElementById('heroTitle');
+let lang='es',ti=0;
+// Reserva la altura de la frase más larga para que nada salte al rotar.
+function lockTitleHeight(){const w=title.getBoundingClientRect().width;if(!w)return;const g=document.createElement('div');g.style.cssText='position:absolute;visibility:hidden;pointer-events:none;left:-9999px;width:'+w+'px';const cs=getComputedStyle(title);g.style.font=cs.font;g.style.fontFamily=cs.fontFamily;g.style.fontSize=cs.fontSize;g.style.fontWeight=cs.fontWeight;g.style.lineHeight=cs.lineHeight;g.style.letterSpacing=cs.letterSpacing;g.style.textWrap='pretty';document.body.appendChild(g);let max=0;for(const l of Object.keys(titles))for(const t of titles[l]){g.textContent=t;max=Math.max(max,g.scrollHeight)}g.remove();title.style.minHeight=Math.ceil(max)+'px'}
+addEventListener('load',lockTitleHeight);addEventListener('resize',lockTitleHeight);
+function setLang(l){document.documentElement.lang=l;for(const[k,v]of Object.entries(copy[l])){const n=document.querySelector('[data-i18n="'+k+'"]');if(n)n.textContent=v}lang=l;title.textContent=titles[l][ti];tickCount();btns.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===l)));try{localStorage.setItem('bz-teaser-lang',l)}catch(e){}}
+const OPENING=new Date(2027,3,1);
+function tickCount(){const d=Math.max(0,Math.ceil((OPENING-new Date())/864e5));document.getElementById('countN').textContent=d.toLocaleString(lang==='en'?'en-US':'es-CL')}
+tickCount();setInterval(tickCount,36e5);
+btns.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+try{const s=localStorage.getItem('bz-teaser-lang');if(s&&copy[s])setLang(s)}catch(e){}
+// Frases del hero: rotación lenta con fundido, en el orden definido.
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){setInterval(()=>{
+  title.animate([{opacity:1,transform:'translateY(0)'},{opacity:0,transform:'translateY(-8px)'}],{duration:900,easing:'ease',fill:'forwards'}).finished.then(()=>{
+    ti=(ti+1)%titles[lang].length;title.textContent=titles[lang][ti];
+    title.animate([{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'translateY(0)'}],{duration:1200,easing:'cubic-bezier(.22,.61,.36,1)',fill:'forwards'});
+  });
+},7500)}
+// Audio: el widget es el control. Sin gesto del usuario no hay sonido.
+const audio=document.getElementById('bzAudio'),audioBtn=document.getElementById('bzAudioBtn');
+audio.volume=.6;
+function audioState(on){audioBtn.classList.toggle('playing',on);audioBtn.setAttribute('aria-pressed',String(on))}
+audioBtn.addEventListener('click',()=>{
+  if(audio.paused){audio.play().catch(err=>{console.warn('Beztial: no se pudo reproducir assets/material-love.mp3 —',err.message);audioBtn.hidden=true})}
+  else{audio.pause()}
+});
+audio.addEventListener('play',()=>audioState(true));
+audio.addEventListener('pause',()=>audioState(false));
+// Si el archivo no está, el control se oculta en vez de quedar muerto.
+audio.addEventListener('error',()=>{console.warn('Beztial: falta assets/material-love.mp3');audioBtn.hidden=true});
+// Fondos: parte en uno al azar y alterna cada 10 s con fundido lento.
+const layers=[...document.querySelectorAll('#media .layer')];
+layers.forEach(l=>l.style.backgroundImage='url("'+l.dataset.bg+'")');
+let cur=Math.floor(Math.random()*layers.length);
+layers[cur].classList.add('on');
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){setInterval(()=>{layers[cur].classList.remove('on');cur=(cur+1)%layers.length;layers[cur].classList.add('on')},10000)}
+</script>
+</body></html>

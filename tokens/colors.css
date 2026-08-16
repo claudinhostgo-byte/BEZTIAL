@@ -1,0 +1,18 @@
+/* Beztial · paleta. Valores idénticos a styles.css del sitio. */
+:root {
+  --bg: #100E0C;                  /* Fondo principal oscuro (body, secciones Concepto y Azotea) */
+  --bg-footer: #0A0908;           /* Fondo de footer y banda de marca */
+  --paper: #F1ECE2;               /* Fondo claro de la sección Carta */
+  --cream: #F4F0E8;               /* Texto principal sobre oscuro; fondo de .btn-light */
+  --red: #C8201C;                 /* Acento fuego: reglas de eyebrow, etiquetas, títulos de categoría */
+  --red-soft: #E0564F;            /* Kickers sobre imagen (hero, banda) */
+  --ink: #1A1714;                 /* Texto sobre papel */
+  --muted: #9A9081;               /* Labels y texto secundario sobre oscuro */
+  --muted-2: #CFC7B8;             /* Subtítulos y enlaces de navegación */
+  --muted-3: #BDB4A5;             /* Cuerpo de texto sobre oscuro (.lede) */
+  --azotea-val: #E4DDCF;          /* Valores de las filas de detalle */
+  --ink-soft: #6B6253;            /* Texto secundario sobre papel */
+  --ink-soft-2: #7A7163;          /* Descripciones de platos */
+  --ink-soft-3: #9A8E7B;          /* Notas al pie sobre papel */
+  --paper-muted: #8A7E6C;         /* Labels y precios sobre papel */
+}

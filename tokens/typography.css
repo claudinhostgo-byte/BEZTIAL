@@ -1,0 +1,5 @@
+/* Beztial · familias tipográficas. Son las dos únicas del sistema. */
+:root {
+  --serif: 'Cormorant Garamond', serif;   /* @kind font */ /* Cormorant Garamond — displays, platos, citas */
+  --sans:  'Jost', sans-serif;    /* @kind font */ /* Jost — UI, labels, cuerpo, botones */
+}
