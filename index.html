@@ -2,6 +2,10 @@
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Beztial · Próximamente en Chicureo</title>
 <meta name="description" content="Tierra, mar y fuego. Próximamente en Chicureo.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
 <link rel="stylesheet" href="styles.css">
 <style>
 html,body{min-height:100%}
@@ -149,6 +153,12 @@ if(!matchMedia('(prefers-reduced-motion: reduce)').matches){setInterval(()=>{
     title.animate([{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'translateY(0)'}],{duration:1200,easing:'cubic-bezier(.22,.61,.36,1)',fill:'forwards'});
   });
 },7500)}
+// Pestaña: la T del favicon queda fija y el texto corre hacia la izquierda.
+// Espacios no separables para que el navegador no los colapse y el paso sea parejo.
+const tabText={es:"BEZTIAL · fuego · mar · tierra · ",en:"BEZTIAL · fire · sea · earth · "};
+let tabPos=0,tabLang=null;
+function tickTab(){const s=tabText[lang].replace(/ /g," ");if(tabLang!==lang){tabLang=lang;tabPos=0}document.title=s.slice(tabPos)+s.slice(0,tabPos);tabPos=(tabPos+1)%s.length}
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){document.title=tabText[lang].replace(/ · $/,"")}else{tickTab();setInterval(tickTab,280)}
 // Audio: el widget es el control. Sin gesto del usuario no hay sonido.
 const audio=document.getElementById('bzAudio'),audioBtn=document.getElementById('bzAudioBtn');
 audio.volume=.6;
