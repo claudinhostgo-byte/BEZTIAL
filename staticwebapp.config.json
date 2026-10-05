@@ -9,11 +9,6 @@
   "responseOverrides": {
     "404": { "rewrite": "/index.html", "statusCode": 404 }
   },
-  "mimeTypes": {
-    "webp": "image/webp",
-    "mp3": "audio/mpeg",
-    "mp4": "video/mp4"
-  },
   "globalHeaders": {
     "X-Content-Type-Options": "nosniff",
     "Referrer-Policy": "strict-origin-when-cross-origin",
