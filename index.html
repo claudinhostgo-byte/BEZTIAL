@@ -124,14 +124,14 @@ a{color:var(--muted-2)}a:hover{color:var(--cream)}
   <div class="teaser-soon fade d5">
     <p class="teaser-soon-line" data-i18n="soon">Próximamente en Chicureo</p>
     <p class="teaser-count"><span id="countN">—</span><span class="teaser-count-unit" data-i18n="days">días para que arda la primera brasa</span></p>
-    <p class="teaser-when" data-i18n="when">Abril 2027</p>
+    <p class="teaser-when" data-i18n="when">Mayo 2027</p>
     <p class="teaser-invite" data-i18n="invite">Síguenos hoy y el aperitivo de tu primera noche va por la casa.</p>
     <a class="teaser-cta" href="https://www.instagram.com/beztial.cl/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"></circle></svg><span data-i18n="cta">Síguenos en @beztial.cl</span></a>
   </div>
 </main>
 <script>
-const copy={es:{sub:"En el roof de un nuevo espacio ya huele a espino. Cortes madurados en casa, fuego a la vista y una terraza que se prepara para recibirte.",soon:"Próximamente en Chicureo",invite:"Síguenos hoy y el aperitivo de tu primera noche va por la casa.",days:"días para que arda la primera brasa",when:"Abril 2027",cta:"Síguenos en @beztial.cl",audio:"Así se escucha una experiencia Beztial"},
-en:{sub:"On the roof of a new space it already smells of espino. House-aged cuts, fire in plain sight and a terrace getting ready for you.",soon:"Coming soon to Chicureo",invite:"Follow us today and your first-night aperitif is on the house.",days:"days until the first ember burns",when:"April 2027",cta:"Follow @beztial.cl",audio:"This is what a Beztial experience sounds like"}};
+const copy={es:{sub:"En el roof de un nuevo espacio ya huele a espino. Cortes madurados en casa, fuego a la vista y una terraza que se prepara para recibirte.",soon:"Próximamente en Chicureo",invite:"Síguenos hoy y el aperitivo de tu primera noche va por la casa.",days:"días para que arda la primera brasa",when:"Mayo 2027",cta:"Síguenos en @beztial.cl",audio:"Así se escucha una experiencia Beztial"},
+en:{sub:"On the roof of a new space it already smells of espino. House-aged cuts, fire in plain sight and a terrace getting ready for you.",soon:"Coming soon to Chicureo",invite:"Follow us today and your first-night aperitif is on the house.",days:"days until the first ember burns",when:"May 2027",cta:"Follow @beztial.cl",audio:"This is what a Beztial experience sounds like"}};
 const titles={es:["Algo se enciende en Chicureo","Cortes que esperaron 45 días para esta noche.","El mar y la brasa, en la misma mesa.","Una cocina que se mide en fuego, no en minutos."],
 en:["Something is catching fire in Chicureo","Cuts that waited 45 days for this night.","The sea and the embers, at the same table.","A kitchen measured in fire, not in minutes."]};
 const btns=document.querySelectorAll('.nav-lang');
@@ -141,7 +141,7 @@ let lang='es',ti=0;
 function lockTitleHeight(){const w=title.getBoundingClientRect().width;if(!w)return;const g=document.createElement('div');g.style.cssText='position:absolute;visibility:hidden;pointer-events:none;left:-9999px;width:'+w+'px';const cs=getComputedStyle(title);g.style.font=cs.font;g.style.fontFamily=cs.fontFamily;g.style.fontSize=cs.fontSize;g.style.fontWeight=cs.fontWeight;g.style.lineHeight=cs.lineHeight;g.style.letterSpacing=cs.letterSpacing;g.style.textWrap='pretty';document.body.appendChild(g);let max=0;for(const l of Object.keys(titles))for(const t of titles[l]){g.textContent=t;max=Math.max(max,g.scrollHeight)}g.remove();title.style.minHeight=Math.ceil(max)+'px'}
 addEventListener('load',lockTitleHeight);addEventListener('resize',lockTitleHeight);
 function setLang(l){document.documentElement.lang=l;for(const[k,v]of Object.entries(copy[l])){const n=document.querySelector('[data-i18n="'+k+'"]');if(n)n.textContent=v}lang=l;title.textContent=titles[l][ti];tickCount();btns.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===l)));try{localStorage.setItem('bz-teaser-lang',l)}catch(e){}}
-const OPENING=new Date(2027,3,1);
+const OPENING=new Date(2027,4,1);
 function tickCount(){const d=Math.max(0,Math.ceil((OPENING-new Date())/864e5));document.getElementById('countN').textContent=d.toLocaleString(lang==='en'?'en-US':'es-CL')}
 tickCount();setInterval(tickCount,36e5);
 btns.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
